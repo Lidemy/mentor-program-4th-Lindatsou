@@ -1,6 +1,4 @@
 /* eslint linebreak-style: ["error", "windows"] */
-/* eslint-disable consistent-return */
-/* eslint-disable no-unused-vars */
 const request = require('request');
 
 const baseUrl = 'https://lidemy-book-store.herokuapp.com';
@@ -12,13 +10,17 @@ const params = process.argv[3];
 function listBooks() {
   request(
     `${baseUrl}/books?_limit=20`, (error, _response, body) => {
-      if (error) return console.log('發生錯誤', error);
+      if (error) {
+        console.log('發生錯誤', error);
+        return;
+      }
 
       let json;
       try {
         json = JSON.parse(body);
       } catch (e) {
-        return console.log(e);
+        console.log(e);
+        return;
       }
 
       for (let i = 0; i < json.length; i += 1) {
@@ -32,13 +34,17 @@ function listBooks() {
 function readBooks(id) {
   request(
     `${baseUrl}/books/${id}`, (error, _response, body) => {
-      if (error) return console.log('發生錯誤', error);
+      if (error) {
+        console.log('發生錯誤', error);
+        return;
+      }
 
       let json;
       try {
         json = JSON.parse(body);
       } catch (e) {
-        return console.log(e);
+        console.log(e);
+        return;
       }
       console.log(json);
     },
@@ -48,8 +54,11 @@ function readBooks(id) {
 // 輸入 id 刪除書籍資訊
 function deleteBooks(id) {
   request.delete(
-    `${baseUrl}/books/${id}`, (error, _response, _body) => {
-      if (error) return console.log('刪除失敗', error);
+    `${baseUrl}/books/${id}`, (error) => {
+      if (error) {
+        console.log('刪除失敗', error);
+        return;
+      }
       console.log('刪除成功');
     },
   );
@@ -63,8 +72,11 @@ function createBooks(name) {
       form: {
         name,
       },
-    }, (error, _response) => {
-      if (error) return console.log('新增失敗', error);
+    }, (error) => {
+      if (error) {
+        console.log('新增失敗', error);
+        return;
+      }
       console.log('新增成功');
     },
   );
@@ -78,8 +90,11 @@ function updateBooks(id, name) {
       form: {
         name,
       },
-    }, (error, _response) => {
-      if (error) return console.log('更新失敗', error);
+    }, (error) => {
+      if (error) {
+        console.log('更新失敗', error);
+        return;
+      }
       console.log('更新成功');
     },
   );
