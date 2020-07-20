@@ -1,5 +1,4 @@
 /* eslint linebreak-style: ["error", "windows"] */
-/* eslint-disable consistent-return */
 const request = require('request');
 
 const baseUrl = 'https://restcountries.eu/rest/v2';
@@ -7,17 +6,29 @@ const name = process.argv[2];
 
 request(
   `${baseUrl}/name/${name}`, (error, response, body) => {
-    if (error) return console.log('error', error);
-    if (!name) return console.log('請重新輸入國家英文名稱');
+    if (error) {
+      console.log('error', error);
+      return;
+    }
+    if (!name) {
+      console.log('請重新輸入國家英文名稱');
+      return;
+    }
 
     let json;
     try {
       json = JSON.parse(body);
     } catch (e) {
-      return console.log(e);
+      console.log(e);
+      return;
     }
 
-    if (json.status === 404) return console.log('找不到國家資訊');
+    if (json.status === 404) {
+      console.log('找不到國家資訊');
+    } else if (json.stasus >= 400) {
+      console.log('Error');
+      return;
+    }
 
     for (let i = 0; i < json.length; i += 1) {
       console.log('============');
