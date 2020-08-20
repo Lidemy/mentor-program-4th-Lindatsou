@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Todo List</title>
+  <!--    讓網頁不會自動因手機螢幕變小而扭曲，使得RWD網頁能正常執行-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      
+      <header class="list__title">To-Do List</header>
+
+      <div class="list__input">
+        <input class="list__input-block" type="input" placeholder="：Add plans here"></input>
+        <div class="list__input-bottomline"></div>
+      </div>
+
+      <div class="todolist">
+        <div class="list__content">
+          <div class="content__checkbox"></div>
+          <div class="content__item">Hit the Gym</div>
+          <div class="content__delete-btn"></div>
+        </div>
+
+        <div class="list__content">
+          <div class="content__checkbox"></div>
+          <div class="content__item">Sleep</div>
+          <div class="content__delete-btn"></div>
+        </div>
+
+        <div class="list__content">
+          <div class="content__checkbox"></div>
+          <div class="content__item">Eat</div>
+          <div class="content__delete-btn"></div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+  <script src='todolist.js'></script>
+</html>

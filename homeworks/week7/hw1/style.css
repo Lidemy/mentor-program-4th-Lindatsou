@@ -1,0 +1,121 @@
+html, body {
+  font-family: "Questrial", "Microsoft JhengHei";
+}
+
+body {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.wrapper {
+  background: white;
+  max-width: 645px;
+  box-shadow: 1.8px 2.4px 5px 0px rgba(0, 0, 0, 0.3);
+  border-top: solid 8px #fad312;
+  padding: 54px 42px;
+  margin: 10% auto;
+}
+
+.form__name {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.form__info {
+  font-size: 14px;
+  line-height: 1.5rem;
+  margin-top: 35px;
+}
+
+.form__notice {
+  font-size: 16px;
+  color: #e74149;
+  margin-top: 22px;
+  margin-bottom: 3rem;
+}
+
+.required .form-content__caption:after {
+  content: "*";
+  color: #e74149;
+  font-size: 20px;
+  padding-left: 0.2rem;
+}
+
+.form-content__caption {
+  color: black;
+  font-size: 20px;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.form-content__input input{
+  padding: 5px;
+  border: solid 1px #d0d0d0;
+}
+
+.form-content__input .placeholder{
+  font-size: 16px;
+  color: #afafaf;
+}
+
+.input__error {
+  color: #e74149;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.hide .input__error {
+  visibility: hidden;
+}
+
+.form-content__input label {
+  font-size: 14px;
+  display: block;
+  margin: 1rem 0 0.5rem 0;
+} 
+
+.form-content__desc {
+  font-size: 14px;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form__submit {
+  background: #fad312;
+  color: black;
+  font-size: 15px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 3px;
+  margin-top: 58px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form__submit:hover {
+  transform: scale(0.9);
+}
+
+.form__bottom {
+  font-size: 14px;
+  color: black;
+  margin-top: 20px;
+}
+
+footer {
+  background: black;
+  font-size: 13px;
+  color: #999999;
+  text-align: center;
+  padding: 24px 12px;
+}
+
+@media(max-width: 420px) {
+  .form__name {
+    font-size: 24px;
+  }
+
+  .form__info {
+    font-size: 12px;
+  }
+}

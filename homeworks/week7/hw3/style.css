@@ -1,0 +1,158 @@
+html, body {
+  font-family: "Questrial", "Microsoft JhengHei";
+}
+
+.header {
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+}
+
+.wrapper {
+  background: #fdebcfb6;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  max-width: 720px;
+  padding: 1.5rem;
+  border: solid 0.2px rgba(108, 178, 206, 0.219);
+  margin: 0 auto;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.list__title {
+  color: rgb(108, 178, 206);
+  font-size: 52px;
+  font-weight: bold;
+  border-bottom: dotted;
+  margin: 1.5rem auto;
+}
+
+.list__input {
+  max-width: 700px;
+  overflow: hidden;
+}
+
+.list__input-block{
+  color: rgb(108, 178, 206);
+  background: none;
+  width: 80%;
+  font-size: 18px;
+  outline: none;
+  padding: 0.5rem;
+  border: none;
+  margin-left: 3rem;
+}
+
+.list__input::-webkit-input-placeholder {
+  color: rgb(187, 187, 187);
+  border: none;
+  margin-left: 0.2rem;
+}
+
+.list__input-bottomline {
+  width: 0;
+  height: 1px;
+  background: rgb(108, 178, 206);
+  padding: none;
+  margin: 0.2rem;
+  transition: 0.5s;
+}
+
+input:not(:placeholder-shown) + div {
+  width: 85%;
+  margin-left: 3rem;
+}
+
+.list__content {
+  display: flex;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.list__content:hover {
+  background: #fffaf2;
+}
+
+.content__checkbox {
+  width: 2px;
+  height: 2px;
+  border: solid 1.5px rgb(108, 178, 206);
+  border-radius: 20%;
+  padding: 10px;
+  margin-left: 1.5rem;
+  transition: 0.3s;
+}
+
+.list__content.checked .content__checkbox{
+  background: rgb(108, 178, 206);
+  transform: scale(0.8);
+}
+
+.content__item {
+  color: rgb(108, 178, 206);
+  font-size: 20px;
+  font-weight: bold;
+  flex: 1;
+  overflow: hidden;
+  margin-left: 1rem;
+  transition: .3s;
+}
+
+.list__content.checked .content__item{
+  color: #97a2a0c2;
+  text-decoration: line-through;
+  transform: scale(0.95);
+}
+
+.content__delete-btn {
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
+  position: relative;
+  transition: 0.3s;
+}
+
+.content__delete-btn:hover,
+.content__checkbox:hover {
+  transform: scale(0.8);
+}
+
+.content__delete-btn::before,
+.content__delete-btn::after{
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 1.5px;
+  top: 2px;
+  right: 9px;
+ background: rgb(108, 178, 206);
+}
+
+.content__delete-btn::before {
+  transform: rotate(45deg);
+}
+
+.content__delete-btn::after {
+  transform: rotate(-45deg);
+}
+
+
+@media(max-width: 768px) {
+  .wrapper {
+    width: 80%;
+  }
+
+  .list__input-block{
+    width: 75%;
+    margin-left: 2.5rem;
+  }
+
+  input:not(:placeholder-shown) + div {
+    width: 75%;
+    margin-left: 3rem;
+  }
+
+  .content__checkbox {
+    margin-left: 1rem;
+  }
+}
