@@ -1,0 +1,172 @@
+html, body {
+  font-family: "Questrial", "Microsoft JhengHei";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background: rgb(51, 51, 51);
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+  height: 84px;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  /* 防止 img hover 時被 transform 效果蓋住*/ 
+  z-index: 1;
+}
+
+.site-name {
+  color: rgb(196, 4, 255);
+  font-size: 36px;
+  font-weight: bold;
+  font-family: Questrial;
+}
+
+.navbar__list {
+  list-style: none;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.navbar__list li {
+  text-decoration: none;
+  color: rgb(240, 240, 240);
+  padding: 8px 12px;
+  display: block;
+  border-radius: 6px;
+  margin-left: 6px;
+  transition: background 0.1s;
+}
+
+.navbar__list li.active, 
+.navbar__list li:hover {
+  background: rgb(196, 4, 255);
+  color: white;
+  cursor: pointer;
+}
+
+.wrapper {
+  background: linear-gradient(rgb(37, 37, 37), rgb(5, 5, 5)), center/cover;
+  background-size: 100% 100%;
+}
+
+.wrapper h1 {
+  color: rgb(240, 240, 240);
+  text-align: center;
+  padding-top: 1rem;
+  margin: 0;
+}
+
+.wrapper h2 {
+  color: rgb(173, 21, 219);
+  font-size: 18px;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.streams {
+  display: inline-flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.stream__card-group {
+  margin-top: 2rem;
+}
+
+.stream__card-group:hover {
+  cursor: pointer;
+}
+
+.stream__card-group > img {
+  max-width: 360px;
+  border-radius: 2px;
+  transition: .2s;
+}
+
+.stream__card-group > img:hover {
+  transform: translate(5px, -5px);
+  box-shadow: -8px 8px 0 0 rgb(173, 21, 219);
+}
+
+.stream__card-content {
+  max-width: 360px;
+  line-height: 1rem;
+  display: flex;
+}
+
+.stream__card-avatar {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0.5rem;
+}
+
+.stream__card-avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.stream__card-avatar:hover {
+  opacity: 0.6;
+}
+
+.stream__card-title {
+  max-width: 240px;
+  font-size: 16px;
+  color: rgb(240, 240, 240);
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0.5rem;
+}
+
+.stream__card-host {
+  font-size: 14px;
+  color: rgb(200, 198, 198);
+  overflow: hidden;
+  margin: 0.5rem;
+}
+
+.stream__card-title:hover,
+.stream__card-host:hover {
+  color: rgb(225, 151, 248);
+}
+
+@media(max-width: 768px) {
+  .header {
+    height: 150px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px;
+  }
+
+  .site-name {
+    margin-top: 10px;
+  }
+
+  .navbar__list {
+    font-size: 90%;
+    display: flex;
+    width: 100%;
+  }
+  
+  .navbar__list li {
+    flex: 1;
+    border-radius: 0;
+    text-align: center;
+    margin: auto 0;
+  }
+}
