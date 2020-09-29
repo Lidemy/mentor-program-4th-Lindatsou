@@ -1,0 +1,117 @@
+html, body {
+  font-family: "Questrial", "Microsoft JhengHei";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgba(221, 255, 241, 0.863);
+}
+
+.warning {
+  background: #ffc4c6;
+  color: #a20606;
+  padding: 10px;
+  text-align: center;
+}
+
+.board__btn {
+  color: black;
+  min-width: 50px;
+  text-decoration: none;
+  display: inline-block;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid rgb(11, 153, 139);
+  padding: .5rem;
+}
+
+.errMsg {
+  color:red;
+}
+
+.board {
+  background: white;
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  border-radius: 5px;
+  padding: 10px 30px;
+  box-shadow: 1px 1px 3px #e8e8e8;;
+}
+
+.board__user-info {
+  margin-bottom: 1rem;
+} 
+
+
+.board__user-info input{
+  border: 1px solid rgb(11, 153, 139);
+  padding: 4px;
+}
+
+textarea {
+  width: 100%;
+  margin: 1rem auto;
+  border: 1px solid rgb(11, 153, 139);
+  padding: .5rem;
+}
+
+.board__submit-btn {
+  width: 100px;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid rgb(11, 153, 139);
+  padding: .5rem;
+}
+
+hr {
+  margin: 1.5rem auto;
+}
+
+.comment__avatar {
+  background: rgba(22, 160, 146, 0.397);
+  min-width: 60px;
+  width: 60px;
+  height: 60px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+
+.comment {
+  max-width: 800px;
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.comment__body {
+  margin-left: .5rem;
+}
+
+.comment__author {
+  color: rgb(11, 153, 139);
+  font-weight: bold;
+}
+
+.comment__time {
+  color: rgb(170, 170, 170);
+  font-weight: bold;
+}
+
+.comment__content {
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.comment__info, 
+.comment__content {
+  max-width: 580px;
+  word-wrap: break-word;
+  line-height: 1.5rem;
+}
+
+@media(max-width: 768px) {
+  
+}
