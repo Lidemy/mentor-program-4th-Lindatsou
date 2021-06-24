@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>留言板 │首頁</title>
+  <!--    讓網頁不會自動因手機螢幕變小而扭曲，使得RWD網頁能正常執行-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <style>
+    .btn {
+      margin-top: 12px;
+    }
+    .card {
+      margin-top: 12px;
+    }
+  </style>
+  <script>
+    function escape(toOutput) {
+      return toOutput.replace(/\&/g, '&amp;')
+        .replace(/\</g, '&lt;')
+        .replace(/\>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/\'/g, '&#x27')
+        .replace(/\//g, '&#x2F');
+      }
+
+    function appendCommentToDom(container, comment, isPrepend) {
+      const html = `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${escape(comment.nickname)}</h5>
+            <p class="card-text">${escape(comment.content)}</p>
+          </div>
+        </div>
+      `
+      if (isPrepend) {
+        container.prepend(html)
+      } else {
+        container.append(html)
+      }
+    }
+
+    $(document).ready(() => {
+      const commentDOM = $('.comments')
+      $.ajax({
+        url: "http://localhost/dashboard/linda/board/week12/api_comments.php?site_key=linda",
+      }).done(function(data) {
+        if (!data.ok) {
+          alert(data.message)
+          return
+        }
+
+        const comments = data.discussions;
+        for (let comment of comments) {
+          appendCommentToDom(commentDOM, comment)
+        }
+      });
+
+      $('.add-comment-form').submit(e => {
+        e.preventDefault();
+        const newCommentData = {
+          site_key: 'linda',
+          nickname: $('input[name=nickname]').val(),
+          content: $('textarea[name=content]').val()
+        }
+        $.ajax({
+          type: 'POST',
+          url: 'http://localhost/dashboard/linda/board/week12/api_add_comments.php',
+          data: newCommentData
+        }).done(function(data) {
+          if (!data.ok) {
+            alert(data.message)
+            return
+          }
+          $('input[name=nickname]').val('')
+          $('textarea[name=content]').val('')
+          appendCommentToDom(commentDOM, newCommentData, true)
+        });
+      })
+    })
+  </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="add-comment-form">
+        <div class="form-group">
+          <label for="form-nickname">暱稱</label>
+          <input name="nickname" type="text" class="form-control" id="form-nickname"></input>
+        </div>
+        <div class="form-group">
+          <label for="content-textarea">留言內容</label>
+          <textarea name="content" class="form-control" id="content-textarea" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">送出</button>
+      </form>
+      <div class="comments">
+      </div>
+    </div>
+  </body>
+
+</html>
