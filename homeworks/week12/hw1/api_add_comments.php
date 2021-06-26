@@ -25,7 +25,7 @@
   $content = $_POST['content'];
 
   /* 把資料寫入資料庫 */
-  $sql = "INSERT INTO test_week12_discussions(site_key, nickname, content) VALUES (?, ?, ?)";
+  $sql = "INSERT INTO linda_w12_board_discussions(site_key, nickname, content) VALUES (?, ?, ?)";
   $stmt = $conn->prepare($sql);  // 準備使用這個 sql
   $stmt->bind_param('sss', $site_key, $nickname, $content);  // 將參數帶入
   $result = $stmt->execute();
